@@ -2,14 +2,40 @@ package ar.edu.unju.edm.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="usuario")
 public class Usuario {
 	
+	@Id
+	@Column(name="DNI")
 	private int dni; //clave primaria
+	
+	@Column(name="APELLIDO")
 	private String apellido;
+	
+	@Column(name="NOMBRE")
 	private String nombre;
+	
+	@Column(name="FECHA_NACIMIENTO")
 	private LocalDate FechaNacimiento;
+	
+	@Column(name="PASSWORD")
 	private String password;
+	
+	@Column(name="TIPO_USUARIO")
 	private String tipoUsuario; //Docente - Estudiante
+	
+//	un usuario puede responder una o mas preguntas y una pregunta puede ser respondida por un o muchos usuarios
+	@ManyToMany
+	@JoinColumn(name="PREGUNTA_CODIGO")
+	private Pregunta pregunta;
 	
 	public Usuario() {
 		// TODO Auto-generated constructor stub

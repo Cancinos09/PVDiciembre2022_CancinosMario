@@ -1,25 +1,54 @@
 package ar.edu.unju.edm.model;
 
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="pregunta")
 public class Pregunta {
 	
-	private int codPregunta; //clave primaria
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="CODIGO")
+	private int codigo; //clave primaria
+	
+	@Column(name="ENUNCIADO")
 	private String enunciado;
+	
+	@Column(name="NIVEL")
 	private int nivel;
+	
+	@Column(name="OPCION1")
 	private String opcion1;
+	
+	@Column(name="OPCION2")
 	private String opcion2;
+	
+	@Column(name="OPCION3")
 	private String opcion3;
+	
+	@Column(name="OPCION4")
 	private String opcion4;
+	
+	@Column(name="OPCION_CORRECTA")
 	private int opcionCorrecta;
+	
+	@Column(name="PUNTAJE")
 	private double puntaje;
 	
 	public Pregunta() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pregunta(int codPregunta, String enunciado, int nivel, String opcion1, String opcion2, String opcion3,
+	public Pregunta(int codigo, String enunciado, int nivel, String opcion1, String opcion2, String opcion3,
 			String opcion4, int opcionCorrecta, double puntaje) {
 		super();
-		this.codPregunta = codPregunta;
+		this.codigo = codigo;
 		this.enunciado = enunciado;
 		this.nivel = nivel;
 		this.opcion1 = opcion1;
@@ -30,12 +59,12 @@ public class Pregunta {
 		this.puntaje = puntaje;
 	}
 
-	public int getCodPregunta() {
-		return codPregunta;
+	public int getCodigo() {
+		return codigo;
 	}
 
-	public void setCodPregunta(int codPregunta) {
-		this.codPregunta = codPregunta;
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getEnunciado() {
@@ -104,10 +133,14 @@ public class Pregunta {
 
 	@Override
 	public String toString() {
-		return "Pregunta [codPregunta=" + codPregunta + ", enunciado=" + enunciado + ", nivel=" + nivel + ", opcion1="
-				+ opcion1 + ", opcion2=" + opcion2 + ", opcion3=" + opcion3 + ", opcion4=" + opcion4
-				+ ", opcionCorrecta=" + opcionCorrecta + ", puntaje=" + puntaje + "]";
+		return "Pregunta [codigo=" + codigo + ", enunciado=" + enunciado + ", nivel=" + nivel + ", opcion1=" + opcion1
+				+ ", opcion2=" + opcion2 + ", opcion3=" + opcion3 + ", opcion4=" + opcion4 + ", opcionCorrecta="
+				+ opcionCorrecta + ", puntaje=" + puntaje + "]";
 	}
+
+	
+
+	
 	
 	
 }
